@@ -30,8 +30,6 @@ class Rishab_Program
         }
 
         Console.Read();
-
-        Console.WriteLine("hello world");
     }
 }
 
