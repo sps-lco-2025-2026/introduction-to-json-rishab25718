@@ -29,7 +29,54 @@ class Rishab_Program
             Console.WriteLine($"{person["name"]}  ({person["craft"]})");
         }
 
-        Console.Read();
+        List<string> Crafts = new List<string>();
+        List<List<string>> PeopleByCraft = new List<List<string>>();
+
+        foreach (dynamic person in people)
+        {
+            
+            bool inCrafts = false;
+            bool inPeople = false;
+
+            foreach (string craft in Crafts)
+            {
+                if (craft == person["craft"])
+                {
+                    inCrafts = true;
+                }
+
+            }
+            if (inCrafts == false)
+            {
+                Crafts.Add(person["craft"]);
+                PeopleByCraft.Add(new List<string>());
+            }
+
+            foreach (List<string> personByCraft in PeopleByCraft)
+            {
+                foreach (string Person in personByCraft)
+                {
+                    if (Person == person["name"])
+                    {
+                        inPeople = true;
+                    }
+                }
+            }
+            if (inPeople == false)
+            {
+                PeopleByCraft[PeopleByCraft.Count - 1].Add(person["name"]);
+            }
+        }
+
+        for (int i = 0; i < PeopleByCraft.Count - 1; i++)
+        {
+            Console.WriteLine($"In {Crafts[i]}, people are:");
+
+            foreach (var person in PeopleByCraft[i])
+            {
+                Console.WriteLine($" - {person}");
+            }
+        }
     }
 }
 
