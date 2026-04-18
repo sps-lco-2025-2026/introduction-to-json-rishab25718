@@ -40,7 +40,7 @@ class Rishab_Program
 
             foreach (string craft in Crafts)
             {
-                if (craft == person["craft"])
+                if (craft == person["craft"].ToString())
                 {
                     inCrafts = true;
                 }
@@ -48,7 +48,7 @@ class Rishab_Program
             }
             if (inCrafts == false)
             {
-                Crafts.Add(person["craft"]);
+                Crafts.Add(person["craft"].ToString());
                 PeopleByCraft.Add(new List<string>());
             }
 
@@ -56,7 +56,7 @@ class Rishab_Program
             {
                 foreach (string Person in personByCraft)
                 {
-                    if (Person == person["name"])
+                    if (Person == person["name"].ToString())
                     {
                         inPeople = true;
                     }
@@ -64,11 +64,11 @@ class Rishab_Program
             }
             if (inPeople == false)
             {
-                PeopleByCraft[PeopleByCraft.Count - 1].Add(person["name"]);
+                PeopleByCraft[PeopleByCraft.Count - 1].Add(person["name"].ToString());
             }
         }
 
-        for (int i = 0; i < PeopleByCraft.Count - 1; i++)
+        for (int i = 0; i < PeopleByCraft.Count; i++)
         {
             Console.WriteLine($"In {Crafts[i]}, people are:");
 
