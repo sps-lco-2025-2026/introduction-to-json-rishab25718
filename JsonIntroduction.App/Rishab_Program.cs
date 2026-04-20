@@ -10,7 +10,7 @@ class Rishab_Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Running Rishab Program!");
+        Console.WriteLine("Running Rishab Program");
         string json = @"{""craft"":""value1"",""name"":""value2""}";
 
         string data = File.ReadAllText("JSON NASA Data.json");
